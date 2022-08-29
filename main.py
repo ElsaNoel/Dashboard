@@ -20,12 +20,12 @@ sns.set(rc={"axes.facecolor":"black", "axes.grid":False,'xtick.labelsize':14,'yt
 f, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2,figsize=(12, 8))
 
 def get_idx():
-	return pd.Series(requests.get(path+'get_idx').json()).sort_values()
+	return pd.Series(requests.get(path+'get_idx/').json()).sort_values()
 
 id = st.sidebar.selectbox('IDENTIFIANT CLIENT', get_idx())
 
 def get_prediction(id):
-	return float(requests.get(path+'predict?id={}'.format(id)).json())
+	return float(requests.get(path+'predict?id={}/'.format(id)).json())
 pred = get_prediction(id)
 
 
