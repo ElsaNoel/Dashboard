@@ -25,7 +25,7 @@ def get_idx():
 id = st.sidebar.selectbox('IDENTIFIANT CLIENT', get_idx())
 
 def get_prediction(id):
-	return float(requests.get(path+'predict?id={}'.format(id)).json())
+	return float(requests.get(path+'predict/?id={}'.format(id)).json())
 pred = get_prediction(id)
 
 
