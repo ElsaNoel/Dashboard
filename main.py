@@ -38,7 +38,7 @@ amtgprice = df.AMT_GOODS_PRICE.loc[df['SK_ID_CURR'] == id]
 
 # Write prediction
 # st.write("Probabilité de défaut : {}".format(pred))
-st.metric('Probabilité de défaut',pred,0.5-pred)
+st.metric('Probabilité de défaut',round(pred,2),round(0.5-pred,2))
 
 bool_cust = (pred >= threshold)
 
