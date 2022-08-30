@@ -32,7 +32,7 @@ pred = get_prediction(id)
 
 dur = df.DURATION.loc[df['SK_ID_CURR'] == id]
 exts3 = df.EXT_SOURCE_3.loc[df['SK_ID_CURR'] == id]
-amtcr  =  df.AMT_CREDIT.loc[df['SK_ID_CURR'] == id]
+amtcr  =  df.EXT_SOURCE_2.loc[df['SK_ID_CURR'] == id]
 amtgprice = df.AMT_GOODS_PRICE.loc[df['SK_ID_CURR'] == id]
 
 
@@ -54,8 +54,8 @@ sns.histplot(ax=ax1, x="DURATION", hue = 'TARGET', data=df, palette='Set2', elem
 ax1.axvline(dur[0], 0, 1, color = 'r' if threshold<float(pred) else 'g',linestyle = 'dashed',linewidth=2)
 sns.histplot(ax=ax2, x="EXT_SOURCE_3", hue = 'TARGET', data=df, palette='Set2', element="poly", stat="density", common_norm=False, legend = False)
 ax2.axvline(exts3[0], 0, 1, color = 'r' if threshold<float(pred) else 'g',linestyle = 'dashed',linewidth=2)
-sns.histplot(ax=ax3, x="AMT_CREDIT", hue = 'TARGET', data=df, palette='Set2', element="poly", stat="density", common_norm=False, legend = False)
-ax3.set_xlim(0,3e6)
+sns.histplot(ax=ax3, x="EXT_SOURCE_2", hue = 'TARGET', data=df, palette='Set2', element="poly", stat="density", common_norm=False, legend = False)
+# ax3.set_xlim(0,3e6)
 ax3.axvline(amtcr[0], 0, 1, color = 'r' if threshold<float(pred) else 'g',linestyle = 'dashed',linewidth=2)
 sns.histplot(ax=ax4, x="AMT_GOODS_PRICE", hue = 'TARGET', data=df, palette='Set2', element="poly", stat="density", common_norm=False, legend = False)
 ax4.axvline(amtgprice[0], 0, 1, color = 'r' if threshold<float(pred) else 'g',linestyle = 'dashed',linewidth=2)
